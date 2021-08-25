@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	:root {
+	--space-bg: transparent;
+	--moon-bg: #e0ebf1;
+	--moon-craters: #cedfeb;
+	--shoe: #cedfeb;
+	--suit-base: #e7eef1;
+	--suit-neck: #eff6f7;
+	--suit-sheild: #3d5989;
+	--backpack: #cedfeb;
+	--radar-light: #c96281;
+}
+
+* {
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 500px;
+	width: fit-content;
+}
+
+.space {
+	height: 400px;
+	width: 400px;
+	border-radius: 50%;
+	position: relative;
+	background-color: var(--space-bg);
+	background-image: radial-gradient(10px circle at 52px 130px, white 8px, transparent), radial-gradient(6px circle at 92px 200px, white 4px, transparent), radial-gradient(3px circle at 52px 295px, white 1px, transparent), radial-gradient(3px circle at 220px 50px, white 1px, transparent), radial-gradient(6px circle at 300px 140px, white 4px, transparent), radial-gradient(5px circle at 350px 220px, white 3px, transparent), radial-gradient(3px circle at 370px 257px, white 1px, transparent);
+}
+
+.moon {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	left: 5%;
+	background-color: var(--moon-bg);
+	background-image: radial-gradient(25px circle at 35px 35px, #cedfeb 23px, transparent), radial-gradient(18px circle at 60px 80px, #cedfeb 15px, transparent), radial-gradient(10px circle at 80px 30px, #cedfeb 9px, transparent);
+}
+
+.landing {
+	width: 600px;
+	height: 100px;
+	position: relative;
+	top: -20px;
+	background: white;
+}
+
+.landing::before {
+	content: "";
+	position: absolute;
+	height: 20px;
+	width: 100px;
+	border-radius: 20%;
+	background: #e7eef1;
+	top: 20px;
+	left: 250px;
+}
+
+.astronaut {
+	width: 200px;
+	height: 300px;
+	position: relative;
+	top: 21%;
+	left: 27%;
+	z-index: 10;
+	filter: blur(0.25px);
+	perspective: 500px;
+}
+
+.head {
+	position: absolute;
+    left: 50px;
+    top: -8px;
+    height: 98px;
+    width: 100px;
+    border-radius: 50%;
+    background: var(--suit-base);
+}
+
+.head::before {
+	content: '';
+    position: absolute;
+    right: 0;
+    top: 20px;
+    height: 59px;
+    width: 61px;
+    background-color: var(--suit-sheild);
+    border-radius: 50%;
+}
+
+.neck {
+	position: absolute;
+    top: 80px;
+    left: 68px;
+    height: 17px;
+    width: 61px;
+    border-radius: 10px;
+    background: var(--suit-neck);
+    z-index: 5;
+}
+
+.body {
+    position: absolute;
+    top: 95px;
+    left: 53px;
+    height: 96px;
+    width: 90px;
+    border-radius: 30px;
+    background-color: var(--suit-base);
+    z-index: 3;
+}
+
+.emblem {
+	position: absolute;
+    top: 12px;
+    left: 50px;
+    width: 45px;
+    height: 50px;
+    background: linear-gradient(#e1566a, #e1566a) 15px 0px/10px 6px no-repeat, radial-gradient(10px circle at 22px 30px, var(--suit-base) 9px, transparent), radial-gradient(20px 16px ellipse at 22px 30px, var(--backpack) 20px, transparent);
+}
+
+.backpack {
+	position: absolute;
+    left: 21px;
+    top: 96px;
+    height: 67px;
+    width: 40px;
+    background: var(--backpack);
+    border-radius: 15px;
+    z-index: -1;
+}
+
+.backpack::before {
+	    content: "";
+    position: relative;
+    display: block;
+    left: 11px;
+    top: -35px;
+    height: 18px;
+    width: 18px;
+    background: var(--radar-light);
+    border-radius: 50%;
+}
+
+.backpack::after {
+    content: "";
+    position: relative;
+    display: block;
+    left: 18px;
+    top: -35px;
+    height: 18px;
+    width: 4px;
+    background: var(--backpack);
+}
+
+.leg {
+	position: absolute;
+    width: 46px;
+    height: 140px;
+}
+
+.upper-leg {
+	width: 37px;
+    height: 55%;
+    border-radius: 20px;
+    transform: rotate(-20deg);
+    transform-origin: top center;
+}
+
+.lower-leg {
+	position: absolute;
+    top: 45px;
+    left: 30px;
+    width: 35px;
+    height: 55%;
+    border-radius: 20px;
+    transform: rotate(10deg) translateX(-5px);
+    transform-origin: top center;
+    background: linear-gradient(-10deg, transparent 30%, var(--shoe) 31%, var(--shoe) 84%, transparent 85%) 0px 20px/40px 20px no-repeat, radial-gradient(25px circle at 23px 70px, var(--shoe) 25px, transparent);
+}
+
+.lower-leg::before {
+	content: '';
+    position: absolute;
+    top: 65px;
+    left: -1px;
+    width: 55px;
+    height: 23px;
+    border-radius: 20px;
+    transform: rotate(-5deg);
+    background: var(--shoe);
+}
+
+.right-leg {
+	top: 155px;
+    left: 60px;
+    z-index: 2;
+    transform-origin: top left;
+    transform: rotate(30deg) translateY(25px);
+}
+
+.right-leg .upper-leg {
+	background: #e7edf0;
+}
+
+.right-leg .lower-leg {
+	background-color: #e7edf0;
+	transform: rotate(40deg) translate(3px, 2px);
+}
+
+.left-leg {
+	top: 160px;
+    left: 84px;
+    z-index: 1;
+    transform-origin: top left;
+    transform: rotate(50deg) translateY(-15px);
+}
+
+.left-leg .upper-leg {
+	background: #dbe3ea;
+}
+
+.left-leg .lower-leg {
+	background-color: #dbe3ea;
+}
+
+.hand {
+	position: relative;
+	width: 60px;
+	height: 120px;
+	transform-origin: top left;
+}
+
+.left-hand {
+	top: -7px;
+    left: 80px;
+    transform: rotate(-70deg) translate(-10px, 25px);
+    z-index: -1;
+}
+
+.right-hand {
+	top: 106px;
+    left: 54px;
+    transform: rotate(35deg) translate(5px, -20px);
+    z-index: 5;
+}
+
+.hand::before {
+	content: '';
+    position: absolute;
+    background-image: linear-gradient(0deg, transparent 60%, aliceblue 61%);
+    background-color: #fff;
+    top: 0;
+    left: 0px;
+    border-radius: 20px;
+    width: 36px;
+    height: 60%;
+}
+
+.hand::after {
+	content: '';
+    position: absolute;
+    background-color: #fff;
+    background-image: linear-gradient(0deg, aliceblue 60%, transparent 61%);
+    top: 30%;
+    left: 0px;
+    border-radius: 20px;
+    width: 34px;
+    height: 60%;
+    transform: rotate(-25deg) translateX(-6px);
+    transform-origin: top center;
+}
+
+.left-hand::before, .left-hand::after {
+	background-color: #eff6f7;
+}
+</style>
+<body>
+<div class="container">
+   <div class="space">
+     <div class="moon">
+     </div>
+     <div class="astronaut"> 
+       <div class="head"> </div>
+       <div class="neck"> </div> 
+       <div class="body"> 
+         <div class="emblem"> </div>
+       </div>
+       <div class="backpack"> </div>
+       <div class="right-hand hand"> </div>
+       <div class="left-hand hand"> </div>
+       <div class="right-leg leg">
+        <div class="upper-leg"></div>
+        <div class="lower-leg"></div>
+       </div>
+       <div class="left-leg leg">
+       <div class="upper-leg"></div>
+      <div class="lower-leg"></div>
+        
+      </div>
+     </div>
+   </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
+<script type="text/javascript">
+	window.onload = function () {
+	  let DEFAULT_TIMELINE = { 
+	    repeat: -1,
+	    yoyo: true
+	  }
+	  let DEFAULT_ANIM_PARAMS = {
+	    duration: 1,
+	    ease: "power2.inOut"
+	  }
+
+	  let mainTimeline = gsap.timeline(DEFAULT_TIMELINE);
+	  mainTimeline.to('.astronaut', { 
+	    duration: 0.5,
+	    ease:  "none",
+	    rotate: -5
+	  })
+
+
+	  let duration = 1;
+	  let ease = "power2.inOut";
+	  
+	  let rightHand = gsap.timeline(DEFAULT_TIMELINE);
+	  rightHand.to('.right-hand', {
+	    ...DEFAULT_ANIM_PARAMS,
+	    transformOrigin: "top left",
+	    rotate: -60,
+	    x: 16,
+	    y: 18,
+	    scaleY: 1.1
+	  })
+
+	  let leftHand = gsap.timeline(DEFAULT_TIMELINE);
+	  leftHand.to('.left-hand', {
+	    ...DEFAULT_ANIM_PARAMS,
+	    transformOrigin: "top left",
+	    rotate: 65,
+	    x: 4,
+	    y: -10
+	  });
+
+	  let rightLeg = gsap.timeline(DEFAULT_TIMELINE);
+	  rightLeg.to('.right-leg', {
+	    ...DEFAULT_ANIM_PARAMS,
+	    transformOrigin: "top left",
+	    rotate: 20,
+		y: 0,
+	  })
+
+	  let leftLeg = gsap.timeline(DEFAULT_TIMELINE);
+	  leftLeg.to('.left-leg', {
+	    ...DEFAULT_ANIM_PARAMS,
+	    transformOrigin: "top left",
+	    rotate: -20,
+	    y: -5
+	  })
+	  
+	  let leftLegTurn = gsap.timeline(DEFAULT_TIMELINE);
+	  
+	  leftLegTurn.to('.left-leg .lower-leg', {
+	    ...DEFAULT_ANIM_PARAMS,
+	    rotate: 20,
+	    x: 1,
+	    y: 5
+	  })
+	  
+	  let rightLegTurn = gsap.timeline(DEFAULT_TIMELINE);
+	  rightLegTurn.to('.right-leg .lower-leg', {
+	    ...DEFAULT_ANIM_PARAMS,
+	    rotate: 10,
+	    x: -5,
+	    y: 0
+	  })
+
+	  let sheild = CSSRulePlugin.getRule(".head:before");
+	  let shieldAn = gsap.timeline(DEFAULT_TIMELINE);
+	  shieldAn.to(sheild, {
+	    ...DEFAULT_ANIM_PARAMS,
+	    cssRule: {
+	      right: -5
+	    }
+	  })
+
+	  let backpack = gsap.timeline(DEFAULT_TIMELINE);
+	  backpack.set('.backpack', {
+	    zIndex: 4
+	  }).to('.backpack', {
+	    left: 30,
+	    ...DEFAULT_ANIM_PARAMS
+	  });
+
+	  let emblem = gsap.timeline(DEFAULT_TIMELINE);
+	  emblem.to('.emblem', {
+	    left: 58,
+	    ...DEFAULT_ANIM_PARAMS
+	  });
+
+	  let light = CSSRulePlugin.getRule(".backpack:before");
+	  let blink = gsap.timeline({
+	    repeat: -1
+	  })
+	  blink.to(light, {
+	    duration: 0.4,
+	    background: "#f36476"
+	  });
+	  
+	  let lander = CSSRulePlugin.getRule(".landing:before");
+	  let expand = gsap.timeline(DEFAULT_TIMELINE);
+	  expand.to(lander, {
+	    duration: 0.5,
+	    cssRule: {
+	      width: 150,
+	      left: 225,
+	      background: "#cedfeb"
+	    }
+	  })
+  
+}
+</script>
+</html>
