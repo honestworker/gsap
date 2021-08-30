@@ -158,19 +158,19 @@
 }
 
 @font-face {
-	font-family:'OpenSansHebrew';font-style:normal;font-weight:300;src:url("../fonts/Open-Sans-Hebrew/OpenSansHebrew-Light.ttf");font-display:swap;
+	font-family:'OpenSansHebrew';font-style:normal;font-weight:300;src:url("fonts/Open-Sans-Hebrew/OpenSansHebrew-Light.ttf");font-display:swap;
 }
 
 @font-face {
-	font-family:'OpenSansHebrew';font-style:normal;font-weight:400;src:url("../fonts/Open-Sans-Hebrew/OpenSansHebrew-Regular.ttf");font-display:swap;
+	font-family:'OpenSansHebrew';font-style:normal;font-weight:400;src:url("fonts/Open-Sans-Hebrew/OpenSansHebrew-Regular.ttf");font-display:swap;
 }
 
 @font-face {
-	font-family:'OpenSansHebrew';font-style:normal;font-weight:700;src:url("../fonts/Open-Sans-Hebrew/OpenSansHebrew-Bold.ttf");font-display:swap;
+	font-family:'OpenSansHebrew';font-style:normal;font-weight:700;src:url("fonts/Open-Sans-Hebrew/OpenSansHebrew-Bold.ttf");font-display:swap;
 }
 
 @font-face {
-	font-family:'OpenSansHebrew';font-style:normal;font-weight:800;src:url("../fonts/Open-Sans-Hebrew/OpenSansHebrew-ExtraBold.ttf");font-display:swap;
+	font-family:'OpenSansHebrew';font-style:normal;font-weight:800;src:url("fonts/Open-Sans-Hebrew/OpenSansHebrew-ExtraBold.ttf");font-display:swap;
 }
 
 html {
