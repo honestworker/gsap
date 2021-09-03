@@ -403,6 +403,10 @@ a:hover a:focus i,a:active i {
 	transition: .5s ease;
 }
 
+.slick-responsive-auto-center.slick-primary .slick-slide.slick-active .instagram-card.card-primary .instagram-image .image {
+	height: 35em;
+	overflow: hidden;
+}
 .slick-responsive-auto-center.slick-primary .slick-slide.slick-active .instagram-card.card-primary .instagram-image .image img {
 	overflow: auto;
 	border-radius: 20px;
@@ -524,7 +528,7 @@ a:hover a:focus i,a:active i {
 .instagram-card.card-primary .instagram-image .image img {
 	margin-left: auto !important;
 	margin-right: auto !important;
-	width: 17.75rem;
+	width: 17.5rem;
 }
 
 .smallest {
@@ -803,10 +807,22 @@ p {
 	position: relative;
 	margin-left: auto !important;
 	margin-right: auto !important;
-	z-index: 10;
 	pointer-events: none;
 	max-width: 40rem;
 	transform: translateX(-12.5%);
+	z-index: 10;
+}
+.home .section.instagram .instagram-preview .preview-hand-wrapper {
+    top: 0;
+    left: 50%;
+    position: absolute;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    pointer-events: none;
+    max-width: 40rem;
+    transform: translate(-62.5%, 0%);
+    z-index: 1;
 }
 
 .home .section.instagram .instagram-preview .preview-slider {
@@ -1281,6 +1297,13 @@ p {
 	color: #fff;
 }
 
+.jellyfish-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	transform: translate(0, -50%);
+}
 .jellyfish {
 	height: 300px;
 	will-change: transform;
@@ -1298,7 +1321,7 @@ p {
 
 .abduction{
 	position: absolute;
-	top: 0;
+	top: -2%;
 	left: 50%;
 	transform: translate(-50%, 0%);
 	z-index: -1;
@@ -1307,8 +1330,6 @@ p {
 .alien-abduction {
 	flex: 0 0 auto;
 	height: 900px;
-	/* border-radius: 50%; */
-	/* border: solid #fff 4px; */
 	background-color: transparent;
 }
 
@@ -1350,7 +1371,6 @@ p {
 	left: 9px;
 }
 
-
 .typing-indicator-hashtag {
 	opacity: 0;
 	background-color: #e4c658;
@@ -1391,6 +1411,7 @@ p {
 }
 
 .typing-indicator-heart-otherguy {
+	opacity: 0;
 	background-color: #fc436c;
 	width: 50px;
 	height: 40px;
@@ -1464,7 +1485,7 @@ p {
 .typing-indicator-hashtag-otherguy::after{
 	content: '\263B';
 	position: absolute;
-	bottom: -3px;
+	bottom: 0px;
 	left: 9px;
 }
 
@@ -2145,7 +2166,7 @@ p {
 }
 
 .smoke {
-	position : absolute;
+	position: absolute;
 	width: 400%;
 	height: 400%;
 	bottom: -250%;
@@ -3904,6 +3925,7 @@ p {
 	.instagram-card.card-primary .instagram-image .image img {
 		width: 10.6rem;
 	}
+	.slick-responsive-auto-center.slick-primary .slick-slide.slick-active .instagram-card.card-primary .instagram-image .image,
 	.slick-responsive-auto-center.slick-primary .slick-slide.slick-current .instagram-card.card-primary .instagram-image .image {
 		height: 22.5em;
 	}
@@ -3990,6 +4012,7 @@ p {
 	.instagram-card.card-primary .instagram-image .image img {
 		width: 8.75rem;
 	}
+	.slick-responsive-auto-center.slick-primary .slick-slide.slick-active .instagram-card.card-primary .instagram-image .image,
 	.slick-responsive-auto-center.slick-primary .slick-slide.slick-current .instagram-card.card-primary .instagram-image .image {
 		height: 18.25em;
 	}

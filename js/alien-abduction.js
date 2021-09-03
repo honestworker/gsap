@@ -20,18 +20,20 @@ $(document).ready(function() {
                 });
     
                 var message = new TimelineMax({ repeat : -1, repeatDelay : .1 });
-                    message.to(".section.instagram .typing-indicator-heart", .1, { scale : 1, opacity : 1, delay: -.1 })
-                    .to(".section.instagram .typing-indicator-heart", .1, { scale : 0.5, opacity : 0, delay : .1})
-                    .to(".section.instagram .typing-indicator-hashtag", .1, { scale : 1, opacity : 1})
-                    .to(".section.instagram .typing-indicator-hashtag", .1, { scale : 0.5, opacity : 0, delay : .1});
-                var message_blink_for_girl = new TimelineMax({ repeat : -1, repeatDelay : .1 });
-                    message_blink_for_girl.to(".section.instagram .typing-indicator-heart-women", 0.5, { scale : 1, opacity : 1, delay : -.1 })
-                    .to(".section.instagram .typing-indicator-heart-women", 0.5, { scale : 0.5, opacity : 0, delay : -.1 })
-                    .to(".section.instagram .typing-indicator-hashtag-women", 0.5, { scale : 1, opacity : 1, })
-                    .to(".section.instagram .typing-indicator-hashtag-women", 0.5, { scale : 0.5, opacity : 0,delay : 0.5,});
-                var message_blink_for_boy = new TimelineMax({ repeat : -1, repeatDelay : .1});
-                    message_blink_for_boy.to(".section.instagram .typing-indicator-heart-otherguy", 0.5, { scale : 1, opacity : 1})
-                    .to(".section.instagram .typing-indicator-heart-otherguy", 0.5, { scale : 0.5, opacity : 0, delay : -1 });
+                    message.to(".section.instagram .typing-indicator-heart", .1, { scale: 1, opacity: 1, delay: -.1 })
+                    .to(".section.instagram .typing-indicator-heart", .1, { scale: 0.5, opacity: 0, delay: .1})
+                    .to(".section.instagram .typing-indicator-hashtag", .1, { scale: 1, opacity: 1})
+                    .to(".section.instagram .typing-indicator-hashtag", .1, { scale: 0.5, opacity: 0, delay: .1});
+                var message_blink_for_girl = new TimelineMax({ repeat: -1, repeatDelay: .1 });
+                    message_blink_for_girl.to(".section.instagram .typing-indicator-heart-women", 0.5, { scale: 1, opacity: 1, delay: -.1 })
+                    .to(".section.instagram .typing-indicator-heart-women", 0.5, { scale: 0.5, opacity: 0, delay: -.1 })
+                    .to(".section.instagram .typing-indicator-hashtag-women", 0.5, { scale: 1, opacity: 1, })
+                    .to(".section.instagram .typing-indicator-hashtag-women", 0.5, { scale: 0.5, opacity: 0, delay: 0.5,});
+                var message_blink_for_guy = new TimelineMax({ repeat: -1, repeatDelay: .1 });
+                message_blink_for_guy.to(".section.instagram .typing-indicator-hashtag-otherguy", 0.5, { scale: 1, opacity: 1, delay: -.1 })
+                    .to(".section.instagram .typing-indicator-hashtag-otherguy", 0.5, { scale: 0.5, opacity: 0, delay: -.1 })
+                    .to(".section.instagram .typing-indicator-heart-otherguy", 0.5, { scale: 1, opacity: 1, })
+                    .to(".section.instagram .typing-indicator-heart-otherguy", 0.5, { scale: 0.5, opacity: 0, delay: 0.5,});
             }
         }        
 
