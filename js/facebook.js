@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
 
     $(window).on('scroll',function(e) {
-        if (window.scrollY >= $('.section.facebook .container .facebook-text').offset().top) {
+        if ($(window).scrollTop() >= $('.section.facebook .container .facebook-text').offset().top - 150) {
             if (!facebook_effected) {
                 facebook_effected = true;
     
@@ -27,68 +27,72 @@ $(document).ready(function() {
                 var blink = new TimelineMax({ repeat: -1, repeatDelay: 5,});
                     blink.to(".section.facebook .eye", 0.5, {scaleY: 0.5,opacity: 0.2, svgOrigin: "center", delay: 3, ease: Back.easeOut.config(1.7) })
                     .to(".section.facebook .eye", 0.5, { scaleY: 1, opacity: 1,  svgOrigin: "center", ease: Back.easeOut.config(1.7) });
-                var diver = new TimelineMax({})
-                    diver.to(".section.facebook .left-driver", 10, { opacity: 1, y: 560 })
-                    .to(".section.facebook .right-driver", 10, { opacity: 1, y: 560, delay: -10 });
-                    
-                let mainTimeline = gsap.timeline(DEFAULT_TIMELINE);
-                mainTimeline.to('.section.facebook .astronaut', { 
-                    duration: 0.9,
-                    ease:  "none",
-                    rotate: -6
-                });
                 
-                let rightLeg = gsap.timeline(DEFAULT_TIMELINE);
-                rightLeg.to('.section.facebook .right-leg', {
-                    ...DEFAULT_ANIM_PARAMS,
-                    transformOrigin: "top right",
-                    rotate: 3,
-                });
-    
-                let leftLeg = gsap.timeline(DEFAULT_TIMELINE);
-                leftLeg.to('.section.facebook .left-leg', {
-                    ...DEFAULT_ANIM_PARAMS,
-                    transformOrigin: "top right",
-                    rotate: -3,
-                });
-    
-                let mainTimelinerevert = gsap.timeline(DEFAULT_TIMELINE);
-                mainTimelinerevert.to('.section.facebook .astronaut-revert', { 
-                    duration: 0.9,
-                    ease:  "none",
-                    rotate: -6
-                });
-                
-                let rightLegrevert = gsap.timeline(DEFAULT_TIMELINE);
-                rightLegrevert.to('.section.facebook .right-leg-revert', {
-                    ...DEFAULT_ANIM_PARAMS,
-                    transformOrigin: "top left",
-                    rotate: 3,
-                });
-    
-                let leftLegrevert = gsap.timeline(DEFAULT_TIMELINE);
-                leftLegrevert.to('.section.facebook .left-leg-revert', {
-                    ...DEFAULT_ANIM_PARAMS,
-                    transformOrigin: "top left",
-                    rotate: -3,
-                });
+                if ($(window).width() >= 768) {
+                    var diver = new TimelineMax({})
+                    diver.to(".section.facebook .left-driver", 10, { y: 560 })
+                    .to(".section.facebook .right-driver", 10, { y: 560, delay: -10 });
+                }
             }
         }
     });
+
+    let mainTimeline = gsap.timeline(DEFAULT_TIMELINE);
+    mainTimeline.to('.section.facebook .astronaut', { 
+        duration: 0.9,
+        ease:  "none",
+        rotate: -6
+    });
+
+    let rightLeg = gsap.timeline(DEFAULT_TIMELINE);
+    rightLeg.to('.section.facebook .right-leg', {
+        ...DEFAULT_ANIM_PARAMS,
+        transformOrigin: "top right",
+        rotate: 3,
+    });
+
+    let leftLeg = gsap.timeline(DEFAULT_TIMELINE);
+    leftLeg.to('.section.facebook .left-leg', {
+        ...DEFAULT_ANIM_PARAMS,
+        transformOrigin: "top right",
+        rotate: -3,
+    });
+
+    let mainTimelinerevert = gsap.timeline(DEFAULT_TIMELINE);
+    mainTimelinerevert.to('.section.facebook .astronaut-revert', { 
+        duration: 0.9,
+        ease:  "none",
+        rotate: -6
+    });
+
+    let rightLegrevert = gsap.timeline(DEFAULT_TIMELINE);
+    rightLegrevert.to('.section.facebook .right-leg-revert', {
+        ...DEFAULT_ANIM_PARAMS,
+        transformOrigin: "top left",
+        rotate: 3,
+    });
+
+    let leftLegrevert = gsap.timeline(DEFAULT_TIMELINE);
+    leftLegrevert.to('.section.facebook .left-leg-revert', {
+        ...DEFAULT_ANIM_PARAMS,
+        transformOrigin: "top left",
+        rotate: -3,
+    });
 });
 
-function texthide(){
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
+function texthide() {
+    var textBtn = $(event.target);
+    var textCard = textBtn.closest('.card-body');
+    var dots = textCard.find(".dots");
+    var moreText = textCard.find(".more");
 
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more"; 
-        moreText.style.display = "none";
+    if (dots.css('display') === "none") {
+        dots.css('display', 'inline');
+        textBtn.html("Read more"); 
+        moreText.css('display', 'none');
     } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less"; 
-        moreText.style.display = "inline";
+        dots.css('display', 'none');
+        textBtn.html("Read less");
+        moreText.css('display', 'inline');
     }
 }
