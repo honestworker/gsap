@@ -15,8 +15,8 @@ $(document).ready(function() {
         }
     });
 
-    $(window).on('scroll',function(e) {
-        if ($(window).scrollTop() >= $('.section.facebook .container .facebook-text').offset().top - 150) {
+    $(window).on('scroll', function(e) {
+        if ($(window).scrollTop() >= $('.section.facebook .container .facebook-text').offset().top - 150 && window.scrollY <  $('.section.about').offset().top) {
             if (!facebook_effected) {
                 facebook_effected = true;
     

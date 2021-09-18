@@ -989,6 +989,10 @@ p {
 	color: #000;
 }
 
+.home .portfolio .portfolio-mobile-fire-space {
+	height: 0;
+	display: none;
+}
 .home .portfolio .portfolio-text .title h3 {
 	font-family: "OpenSansHebrew";
 	font-style: normal;
@@ -1094,23 +1098,17 @@ p {
 	position: absolute;
 	width: 4.5rem;
 	height: 3.5rem;
-	top: 50%;
-	left: 95%;
+    top: -2px;
+    right: -2px;
 	cursor: pointer;
-	transform: translate(-50%, -50%);
 	background-image: url(../images/icon-coffee.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	display: none;
 }
 .home .contact .contact-text .title h3 .contact-toggle.active {
-    left: 15%;
-    top: -5%;
-	transform: rotateY(180deg);
+    left: -2px;
+	right: auto;
 	transform-origin: center left;
-}
-.home .contact .contact-text .title h3:hover .contact-toggle {
-	display: block;
 }
 
 .home .contact .contact-text .subtitle h4 {
@@ -1297,12 +1295,6 @@ p {
 }
 
 .jellyfish-wrapper {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 100%;
-	transform: translate(0, -50%);
-	z-index: -1;
 }
 .jellyfish {
 	height: 300px;
@@ -1312,11 +1304,21 @@ p {
 
 .jellyfish-left,
 .jellyfish-right {
+	position: absolute;
+	top: 60%;
+	z-index: -1;
 	background-color: transparent;
+	width: 300px;
 	height: 400px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.jellyfish-left {
+	left: calc(50vw - 570px - 150px);
+}
+.jellyfish-right {
+	right: calc(50vw - 570px - 150px);
 }
 
 .abduction{
@@ -2344,16 +2346,16 @@ p {
 
 @keyframes shake {
 	10%, 90% {
-	  	transform: translate3d(-1px, 0, 0);
+	  	transform: translate3d(-3px, 0, 0);
 	}
 	20%, 80% {
-	  	transform: translate3d(-1px, 0, 0);
+	  	transform: translate3d(-3px, 0, 0);
 	}
 	30%, 50%, 70% {
-	  	transform: translate3d(-2px, 0, 0);
+	  	transform: translate3d(-3px, 0, 0);
 	}
 	40%, 60% {
-	  	transform: translate3d(2px, 0, 0);
+	  	transform: translate3d(3px, 0, 0);
 	}
 }
 .shootingstar {
@@ -3329,25 +3331,24 @@ p {
 
 @media(max-width:767.98px) {
 	.home .section.instagram {
-		padding-top: 10.5rem;
+		padding-top: 15rem;
 		margin-bottom: -7rem;
 	}
 	.home .section.instagram > .container {
 		padding-top: 1.5rem !important;
 	}
 	.home .section.instagram .instagram-object .object-image:nth-child(1) {
-		width: 50%;
+		width: 70%;
 		bottom: 5%;
+		left: 2.5%;
 	}
 	.home .section.instagram .instagram-object .object-image:nth-child(2) {
 		top: 2.5%;
 	}
 	.home .section.instagram .instagram-object .object-image:nth-child(3) {
-		width: 12.5%;
+		width: 17.5%;
 		bottom: 0.5%;
-	}
-	.home .section.instagram .instagram-object .object-image .image {
-		transform: scale(0.6);
+		right: 1%;
 	}
 	.home .section.instagram .instagram-text .title h3 {
 		font-size: 24px;
@@ -3356,16 +3357,16 @@ p {
 
 	.typing-indicator-heart-women,
 	.typing-indicator-hashtag-women {
-		top: 11px;
-		left: 65px;
-		transform: scale(0.5)!important;
+		top: 31px;
+		left: 82px;
+		transform: scale(0.6)!important;
 	}
 	.typing-indicator-heart-otherguy,
 	.typing-indicator-hashtag-otherguy {
 		top: 11px;
 		right: 25px;
 		left: auto;
-		transform: scale(0.5)!important;
+		transform: scale(0.6)!important;
 	}
 	.typing-indicator-heart {
 		margin-top: -181px;
@@ -3409,12 +3410,12 @@ p {
 		display: block;
 	}
 	.home .section.facebook .facebook-preview .preview-image {
-		border-radius: 20px;;
-		max-height: calc((100vw - 30px) * 745 / 381);
-		width: calc(100vw - 50px)!important;
+		border-radius: 0px;
+		max-height: calc((100vw - 30px) * 208 / 381);
+		width: calc(100vw - 60px)!important;
 	}
 	.home .section.facebook .facebook-preview .preview-image::-webkit-scrollbar {
-		width: .25rem;
+		width: 0rem;
 	}
 	.home .section.facebook .facebook-preview .preview-button {
 		top: 75%;
@@ -3505,15 +3506,17 @@ p {
 		line-height: 36px;
 	}
 	
+	.home .portfolio {
+		padding-bottom: 7em;
+		-webkit-mask-box-image: url(../images/background-base-portfolio-for-mobile.svg);
+	}
+	.home .portfolio .portfolio-mobile-fire-space {
+		height: 8em;
+	}
 	.home .portfolio .portfolio-text .title h3 {
 		font-size: 24px;
 		line-height: 36px;
 		margin-top: 6.5rem !important;
-	}
-	
-	.home .portfolio {
-		padding-bottom: 15em;
-		-webkit-mask-box-image: url(../images/background-base-portfolio-for-mobile.svg);
 	}
 	.home .portfolio .portfolio-tab .tab-content .tab-pane>.row {
 		display: -webkit-box;
@@ -3733,7 +3736,7 @@ p {
 	.takeoff {
 		width: 60px;
 		height: 91px;
-		right: 0px;
+		right: 2px;
 		bottom: 130px;
 		transform: translateX(0%);
 	}

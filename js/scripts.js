@@ -64,15 +64,6 @@ $(document).ready(function() {
             ]
         });
     }
-    $('.home .contact .contact-text .title h3 .contact-toggle').click(function() {
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active');
-            $('.home .contact .contact-form').removeClass('active');
-        } else {
-            $(this).addClass('active');
-            $('.home .contact .contact-form').addClass('active');  
-        }
-    });
 });
 
 /* ------------------- Animation Settings ------------------- */
@@ -86,21 +77,51 @@ let DEFAULT_ANIM_PARAMS = {
 }
 
 /* -------------------    Swipe Detect    ------------------- */
-swipedetect($('.home .contact .contact-text .title h3')[0], function(swipedir) {
-    var contact_form = $('.home .contact .contact-form');
-    var contact_toggle = $('.home .contact .contact-text .title h3 .contact-toggle');
-    if (swipedir =='left') {
-        if (!contact_toggle.hasClass('active')) {
-            contact_toggle.addClass('active');
-            contact_form.addClass('active');
+if ($(window).width() < 768) {
+    swipedetect($('.home .contact .contact-text .title h3')[0], function(swipedir) {
+        var contact_form = $('.home .contact .contact-form');
+        var contact_toggle = $('.home .contact .contact-text .title h3 .contact-toggle');
+        if (swipedir =='left') {
+            if (!contact_toggle.hasClass('active')) {
+                contact_toggle.addClass('active');
+                contact_form.addClass('active');
+            }
         }
-    }
-    if (swipedir =='right') {
-        if (contact_toggle.hasClass('active')) {
-            contact_toggle.removeClass('active');
-            contact_form.removeClass('active');
+        if (swipedir =='right') {
+            if (contact_toggle.hasClass('active')) {
+                contact_toggle.removeClass('active');
+                contact_form.removeClass('active');
+            }
         }
-    }
-});
-
+    });
+} else {
+    $('.home .contact .contact-text .title h3 .contact-toggle').draggable({
+        containment: '.home .contact .contact-text .title h3',
+        cursor: 'move',
+        snap: '.home .contact .contact-text .title h3',
+        stop: handleDragStopContactToggle
+    });
+    
+    function handleDragStopContactToggle( event, ui ) {
+        var contact_form = $('.home .contact .contact-form');
+        var contact_title = $('.home .contact .contact-text .title h3');
+        var contact_toggle = $('.home .contact .contact-text .title h3 .contact-toggle');
+        var contact_toggle_left = contact_toggle.css('left').match(/(\d+)/);
+        if (contact_toggle_left[0] > (contact_title.width() - contact_toggle.width()) / 2) {
+            if (contact_toggle.hasClass('active')) {
+                contact_toggle.removeClass('active');
+                contact_form.removeClass('active');
+            }
+            contact_toggle.css('left', 'auto');
+            contact_toggle.css('right', '-2px');
+        } else {
+            if (!contact_toggle.hasClass('active')) {
+                contact_toggle.addClass('active');
+                contact_form.addClass('active');
+            }
+            contact_toggle.css('right', 'auto');
+            contact_toggle.css('left', '-2px');
+        }
+    }  
+}
 /* -------------------     Responsive     ------------------- */

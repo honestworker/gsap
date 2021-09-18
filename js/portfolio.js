@@ -1,39 +1,39 @@
 window.onload = function () {
     var portfolio_effected = false;
     $(window).on('scroll',function(e) {
-        if (window.scrollY >= $('.section.portfolio .container').offset().top) {
+        if (window.scrollY >= $('.section.portfolio .container').offset().top + ($('.section.portfolio').height() - $(window).height()) && window.scrollY <= $('.section.instagram').offset().top) {
             if (!portfolio_effected) {
                 portfolio_effected = true;
                         
                 var t_portfolio = new TimelineMax({});
                     t_portfolio.addLabel("start-portfolio", 0)
-                        .add( TweenMax.from(".rocket-fire-artboard .takeoff",      0.5,    { scaleY: 0, y: -200, delay: -1 }) )
-                        .add( TweenMax.to  ("#portfolio-rocket",                   1,      { className: "+=shake", delay: 3 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .smoke",        0,      { y: -50, delay: 2.5 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .firebubble",   1,      { scaleY: 1.5, opacity: 1, delay: -1 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .missilefire",  1,      { opacity: 0, delay: -1 }) )
-                        .add( TweenMax.to  ("#portfolio-rocket",                   1,      { className: "+=" }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .firebubble",   1,      { y: -2800,  delay: -1 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .missilefire",  1,      { y: -2800,  delay: -1 }) )
-                        .add( TweenMax.to  ("#portfolio-rocket",                   1,      { y: -2800,  delay: -1 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .smoke",        1,      { y: -2800,  delay: -1 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .takeoff",      1,      { y: -2800,  delay: -1 }) )
-                        .add( TweenMax.to  (".section.portfolio",                  1,      { background: "black", delay: -1 }) )
-                        .add( TweenMax.to  (".shootingstar",                       1,      { display: "block", delay: -1 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard",               1,      { y: -2800, display: "none", delay: -1 }) )
-                        .add( TweenMax.to  (".rocket-wrapper",                     1,      { display: "block", delay: 0.2 }) )
-                        .add( TweenMax.to  (".spacewalk-wrapper",                  1,      { display: "block", delay: -1 }) )
-                        .add( TweenMax.to  (".saturn-wrapper",                     1,      { display: "block", delay: -1 }) )
-                        .add( TweenMax.to  (".galaxy-wrapper",                     1,      { opacity: 1, delay: -1 }));
+                        .add( TweenMax.from(".rocket-fire-artboard .takeoff",                   0.5,    { scaleY: 0, y: -200, delay: -1 }) )
+                        .add( TweenMax.to  ("#portfolio-rocket",                                1,      { className: "+=shake", delay: 1 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .firebubble",                1,      { scaleY: 1.5, opacity: 1, delay: -1 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .smoke",                     0,      { y: -50, delay: 3.5 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .missilefire",               1,      { opacity: 0, delay: -1 }) )
+                        .add( TweenMax.to  ("#portfolio-rocket",                                1,      { className: "+=" }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .firebubble",                1,      { y: -2800,  delay: -1 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .missilefire",               1,      { y: -2800,  delay: -1 }) )
+                        .add( TweenMax.to  ("#portfolio-rocket",                                1,      { y: -2800,  delay: -1 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .smoke",                     1,      { y: -2800,  delay: -1 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .takeoff",                   1,      { y: -2800,  delay: -1 }) )
+                        .add( TweenMax.to  (".section.portfolio .portfolio-mobile-fire-space",  1,      { display: "block", delay: -1 }) )
+                        .add( TweenMax.to  (".section.portfolio",                               1,      { background: "black", delay: -1 }) )
+                        .add( TweenMax.to  (".shootingstar",                                    1,      { display: "block", delay: -1 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard",                            1,      { y: -2800, display: "none", delay: -1 }) )
+                        .add( TweenMax.to  (".rocket-wrapper",                                  1,      { display: "block", delay: 0.2 }) )
+                        .add( TweenMax.to  (".spacewalk-wrapper",                               1,      { display: "block", delay: -1 }) )
+                        .add( TweenMax.to  (".saturn-wrapper",                                  1,      { display: "block", delay: -1 }) )
+                        .add( TweenMax.to  (".galaxy-wrapper",                                  1,      { opacity: 1, delay: -1 }));
         
                 var t_rocket = new TimelineMax({});
                     t_rocket.addLabel('start-rocket', 0)
-                        .add( TweenMax.to  ("#rocket-rocket",                       1,      { rotate: 0, y: 0 }) )
-                        .add( TweenMax.to  (".section.portfolio .stars",            0.2,    { opacity: 0, delay: -3 }) )
-                        .add( TweenMax.from(".section.portfolio .stars2",           0.2,    { opacity: 0, delay: -3 }) )
-                        .add( TweenMax.to  (".rocket-wrapper .artboard",            0.2,    { rotation: 40, delay: -3 }) )
-                        .add( TweenMax.to  (".rocket-fire-artboard .smoke",         2,      { opacity: 0, delay: -2 }) );
-                        // .add( TweenMax.to  (".rocket-wrapper",                      1,      { display: "block", x: 400, y: -300}) );
+                        .add( TweenMax.to  ("#rocket-rocket",                                   1,      { rotate: 0, y: 0 }) )
+                        .add( TweenMax.to  (".section.portfolio .stars",                        0.2,    { opacity: 0, delay: -3 }) )
+                        .add( TweenMax.from(".section.portfolio .stars2",                       0.2,    { opacity: 0, delay: -3 }) )
+                        .add( TweenMax.to  (".rocket-wrapper .artboard",                        0.2,    { rotation: 40, delay: -3 }) )
+                        .add( TweenMax.to  (".rocket-fire-artboard .smoke",                     2,      { opacity: 0, delay: -2 }) );
                 
                 let mainTimeline = gsap.timeline(DEFAULT_TIMELINE);
                     mainTimeline.to('.spacewalk-artboard .astronaut', { 

@@ -3,7 +3,7 @@ $(document).ready(function() {
     var alien_effected = false;
     
     $(window).on('scroll',function(e) {
-        if (window.scrollY >= $('.section.instagram').offset().top) {
+        if (window.scrollY >= $('.section.instagram').offset().top && window.scrollY <  $('.section.facebook').offset().top) {
             if (!alien_effected) {
                 alien_effected = true;
                 gsap.to(".section.instagram .star", {
@@ -37,13 +37,13 @@ $(document).ready(function() {
             }
         }        
 
-        if (window.scrollY >= $('.section.instagram').offset().top + 50) {
+        if (window.scrollY >= $('.section.instagram').offset().top + 50 && window.scrollY <  $('.section.facebook').offset().top) {
             if (!alien_text_effected) {                
                 alien_text_effected = true;
 
                 //register the plugin
                 gsap.registerPlugin(MotionPathPlugin);
-                const motionPathData = "M -885.91951,313.36017 C -101.87323,264.35728 682.17197,215.35446 681.98334,163.42799 681.79472,111.50153 -102.62577,56.651415 -102.56404,7.1353029 -102.5023,-42.380809 682.04151,-86.562333 682.23001,-133.93094 c 0.1885,-47.3686 -783.97805,-97.92418 -782.105326,-145.12453 1.872723,-47.20035 789.784546,-91.04487 955.491396,-130.37602 165.70682,-39.33116 -290.79313,-74.14895 -747.29405,-108.96681";
+                const motionPathData = "M -881.96693,701.86008 C -51.93196,651.19128 778.10927,600.5221 768.71414,551.8691 759.31901,503.2161 -87.525065,457.31489 -90.197634,399.51908 -92.870203,341.72328 752.34558,272.23518 762.03378,214.10562 771.72199,155.97605 -54.117513,109.2052 -106.23381,51.409409 -158.3501,-6.3863862 563.25724,-75.206344 739.00102,-130.01314 914.7448,-184.81994 544.62325,-225.61358 174.50084,-266.40732";
                 // const motionPathData = "M-399.25379,-340.71797 C-399.25379,-340.71797 386.70813,-284.92113 420.50613,-152.49513 454.28013,-20.09013 -159.91287,-245.09513 -159.91287,-91.90313 -159.91287,61.26087 378.10113,-103.60513 384.90413,21.27287 391.70213,146.13787 122.70503,104.22685 122.70503,104.22685 ";
                 const exitPathData = "M579.41621,-174.11096 C579.41621,-174.11096 502.92821,-184.48396 411.31121,-159.05496 309.72221,-130.85696 292.54621,-121.82696 196.91321,-90.59496 134.95521,-70.35696 62.36621,-19.28196 55.60721,29.13604 48.81421,77.74604 120.07209,102.90601 120.07209,102.90601 ";
 
@@ -62,7 +62,7 @@ $(document).ready(function() {
                         .to(".section.instagram .alien", {
                             duration: 10,
                             immediateRender: true,
-                            ease: Elastic.easeOut.config(1, 1.2),
+                            ease: Elastic.easeOut.config(1, 1),
                             motionPath: motionPathData
                         }, 0)
                         .from(".section.instagram .alien", {
@@ -90,70 +90,6 @@ $(document).ready(function() {
                             rotate: "0deg",
                             ease: Back.easeOut.config(8)
                         }, "tiltThree+=1");
-
-                    return tl;
-                }
-                function sheep() {
-                    var tl = gsap.timeline({ defaults: { ease: Power1.easeOut } })
-                        .from(".section.instagram .head", {
-                            duration: 0.2,
-                            ease: Power1.easeInOut,
-                            rotate: "30deg",
-                            transformOrigin: "0% 50%",
-                            xPercent: 5,
-                            yPercent: 32
-                        })
-                        .to(".section.instagram .head", {
-                            duration: 0.4,
-                            ease: Power1.easeInOut,
-                            rotate: "-80deg",
-                            transformOrigin: "0% 50%",
-                            xPercent: 10,
-                            yPercent: 10
-                        }, "+=1")
-
-                        .to(".section.instagram .sheep", {
-                            duration: 0.4,
-                            ease: Power1.easeInOut,
-                            rotate: "50deg",
-                            transformOrigin: "100% 50%",
-                            yPercent: -30,
-                            xPercent: -20
-                        })
-                        .to(".section.instagram .head", {
-                            duration: 0.4,
-                            ease: Power1.easeInOut,
-                            rotate: "-15deg",
-                            transformOrigin: "0% 50%"
-                        }, "+=0.2")
-                        .fromTo(".section.instagram .leg", {
-                            duration: 0.1,
-                            rotate: "30deg",
-                            transformOrigin: "50% 0%",
-                            immediateRender: false
-                        },
-                            {
-                                duration: 0.1,
-                                rotate: "-30deg",
-                                transformOrigin: "50% 0%",
-                                immediateRender: false,
-                                stagger: {
-                                    each: 0.1,
-                                    yoyo: true,
-                                    repeat: 12,
-                                    repeatDelay: 0,
-                                    ease: "Power1.easeInOut",
-                                    from: "start"
-                                }
-                            }, "-=1")
-                        .to(".section.instagram .sheep", {
-                            duration: 0.4,
-                            ease: Power1.easeInOut,
-                            transformOrigin: "50% 50%",
-                            yPercent: -250,
-                            scale: 0.6,
-                            opacity: 0
-                        }, "-=0.8");
 
                     return tl;
                 }
@@ -217,7 +153,6 @@ $(document).ready(function() {
                 const mainTimeline = gsap.timeline({ defaults: { ease: Power1.easeOut } })
                     .add(alien(), 0.5)
                     .add(lightOpen(), 3.2)
-                    .add(sheep(), 3.4)
                     .add(alienExit(), 7);
             }
         }
